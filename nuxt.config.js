@@ -1,6 +1,5 @@
 export default {
     target: 'static',
-    mode: 'static',
     router: {
         base: '/los_heroes/'
     },
