@@ -216,4 +216,63 @@ export default {
 .modal-fade-leave-active {
     transition: opacity 0.5s ease;
 }
+@media (max-width: 600px) {
+    .modal {
+        height: 150px;
+        margin-top: 20%;
+    }
+    .add_content {
+        border-radius: 15px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 5%;
+    }
+    .name_new {
+        width: 100%;
+    }
+    .modal-overlay {
+        justify-content: left;
+        padding-left: 4%;
+    }
+    .add_title {
+        padding-left: 0%;
+    }
+    .cancelar {
+        padding-right: 10%;
+    }
+    .count {
+        align-self: start;
+        justify-content: center;
+    }
+}
+@media (min-width: 600px) and ( max-width: 900px) {
+    .modal {
+        margin-top: 20%;
+        width: 100vw;
+    }
+    .add_content {
+        border-radius: 15px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+    }
+    .name_new {
+        width: 90%;
+    }
+    .modal-overlay {
+        justify-content: left;
+        width: 100%;
+    }
+    .add_title {
+        padding-left: 0%;
+    }
+    .cancelar {
+        padding-right: 1%;
+    }
+    .count {
+        align-self: start;
+        justify-content: center;
+    }
+}
 </style>

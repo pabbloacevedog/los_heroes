@@ -77,7 +77,7 @@ export default {
         },
         clean_filters() {
             this.$store.commit("filter/cleanFilters");
-            this.start()
+            this.start();
         },
     },
     created() {
@@ -116,6 +116,54 @@ export default {
 };
 </script>
 <style lang="css" >
+@media (max-width: 600px) {
+    .grid-container {
+        display: grid;
+        min-height: 100vh;
+        grid-template-rows: 20vh auto 8vh;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+    }
+    .header {
+        grid-area: header;
+        background-color: #45289f;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-all {
+        padding: 0px 2% !important;
+    }
+}
+@media (min-width: 600px) and ( max-width: 900px) {
+    .grid-container {
+        display: grid;
+        min-height: 100vh;
+        grid-template-rows: 21vh auto 8vh;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+    }
+    .header {
+        grid-area: header;
+        background-color: #45289f;
+        display: flex;
+        flex-direction: row;
+    }
+    .content-all {
+        padding: 0px 2% !important;
+    }
+    .order_filter {
+        padding-left: 0%;
+    }
+    .add_area {
+        flex-grow: 1;
+        text-align: right;
+        padding-right: 0%;
+    }
+}
 .search_area {
     padding: 1% 0;
 }

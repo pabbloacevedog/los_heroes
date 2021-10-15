@@ -260,4 +260,13 @@ export default {
     top: -7px;
     left: -2px;
 }
+@media (max-width: 600px) {
+    .name {
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+    }
+}
 </style>
