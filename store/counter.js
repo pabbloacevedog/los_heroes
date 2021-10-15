@@ -38,7 +38,7 @@ export const mutations = {
         state.list.splice(data, 1);
     },
     addOne(state, data) {
-        state.list[data].value = state.list[data].value+1
+        state.list[data].value++
     },
     removeOne(state, data) {
         state.list[data].value--

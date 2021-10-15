@@ -38,7 +38,8 @@ export default {
     modules: [
         ['nuxt-vuex-localstorage', {
             mode: 'debug',
-            localStorage: ['counter']
+            localStorage: ['counter'],
+            sessionStorage:['filter']
           }]
     ],
 

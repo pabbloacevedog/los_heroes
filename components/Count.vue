@@ -170,11 +170,13 @@ export default {
     padding: 5px;
     background: #e26d6d;
     color: #ffffff;
+    border-radius: 25px;
 }
 .btn_add {
     padding: 5px;
     background: #3e9b27;
     color: #ffffff;
+    border-radius: 25px;
 }
 .btn_add:hover {
     background: #205c11;

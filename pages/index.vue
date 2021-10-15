@@ -14,7 +14,7 @@
                     />
                 </div>
             </div>
-            
+
             <div
                 v-for="(item, index) in items"
                 :key="index"
@@ -23,7 +23,9 @@
                 <Count :item="item" :index="index" />
             </div>
         </div>
-         <div v-else class="name" style="padding-top: 8%; text-align: center;"> Cree un nuevo contador en el botón superior derecho</div>
+        <div v-else class="name" style="padding-top: 8%; text-align: center">
+            Cree un nuevo contador en el botón superior derecho
+        </div>
     </div>
 </template>
 
@@ -42,7 +44,7 @@ export default {
         return {
             datos: {},
             items: [],
-            buscador:'',
+            buscador: "",
             viewDetail: false,
         };
     },
@@ -52,6 +54,9 @@ export default {
         },
         list() {
             return this.$store.state.counter.list;
+        },
+        number_filter() {
+            return this.$store.state.filter.number_filter;
         },
     },
     methods: {
@@ -65,8 +70,13 @@ export default {
             var items = this.list;
             this.items = items.filter(
                 (item) =>
-                    item.name.toLowerCase().indexOf(this.buscador.toLowerCase()) > -1
+                    item.name
+                        .toLowerCase()
+                        .indexOf(this.buscador.toLowerCase()) > -1
             );
+        },
+        clean_filters() {
+            this.$store.commit("filter/cleanFilters");
         },
     },
     created() {
@@ -79,6 +89,26 @@ export default {
             var items = this.$store.state.counter.list;
             if (items) {
                 this.items = items;
+            }
+        },
+        "$store.state.filter.filterSmaller": function () {
+            if (this.$store.state.filter.filterSmaller) {
+                var items = this.list;
+                this.items = items.filter(
+                    (e) => Number(e.value) <= Number(this.number_filter)
+                );
+            } else {
+                this.clean_filters();
+            }
+        },
+        "$store.state.filter.filterHigher": function () {
+            if (this.$store.state.filter.filterHigher) {
+                var items = this.list;
+                this.items = items.filter(
+                    (e) => Number(e.value) >= Number(this.number_filter)
+                );
+            } else {
+                this.clean_filters();
             }
         },
     },
