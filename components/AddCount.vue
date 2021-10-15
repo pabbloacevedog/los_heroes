@@ -24,11 +24,13 @@
                         <div style="align-self: center">
                             <input
                                 type="number"
+                                id="input_counter"
                                 class="input_counter"
                                 min="1"
                                 max="20"
                                 v-model="obj.value"
                                 @keypress="solo_numeros"
+                                @focus="clean_counter"
                             />
                         </div>
                     </div>
@@ -65,12 +67,27 @@ export default {
         },
         addCount() {
             if (this.obj.name != "") {
-                var items = JSON.parse(localStorage.getItem("list"));
-                if (items) {
-                    const found = items.find(
-                        (element) => element.name === this.obj.name
-                    );
-                    if (!found) {
+                if (Number(this.obj.value) <= 20) {
+                    var items = JSON.parse(localStorage.getItem("list"));
+                    if (items) {
+                        const found = items.find(
+                            (element) => element.name === this.obj.name
+                        );
+                        if (!found) {
+                            this.$store
+                                .dispatch("counter/saveCount", this.obj)
+                                .then((res) => {
+                                    this.obj.value = 0;
+                                    this.obj.name = "";
+                                    this.changeModalState();
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                });
+                        } else {
+                            this.error_input();
+                        }
+                    } else {
                         this.$store
                             .dispatch("counter/saveCount", this.obj)
                             .then((res) => {
@@ -81,20 +98,9 @@ export default {
                             .catch((err) => {
                                 console.log(err);
                             });
-                    } else {
-                        this.error_input();
                     }
                 } else {
-                    this.$store
-                        .dispatch("counter/saveCount", this.obj)
-                        .then((res) => {
-                            this.obj.value = 0;
-                            this.obj.name = "";
-                            this.changeModalState();
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
+                    this.error_counter();
                 }
             } else {
                 this.error_input();
@@ -104,9 +110,17 @@ export default {
             var element = document.getElementById("name_new");
             element.classList.remove("input_error");
         },
+        clean_counter() {
+            var element = document.getElementById("input_counter");
+            element.classList.remove("counter_error");
+        },
         error_input() {
             var element = document.getElementById("name_new");
             element.classList.add("input_error");
+        },
+        error_counter() {
+            var element = document.getElementById("input_counter");
+            element.classList.add("counter_error");
         },
         solo_numeros(e) {
             var key = e.keyCode || e.which;
@@ -149,6 +163,10 @@ export default {
 .input_counter {
     width: 40px;
     text-align: center;
+}
+.counter_error {
+    outline: none !important;
+    border: 2px solid red;
 }
 .add_title {
     flex-grow: 1;
