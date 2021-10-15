@@ -1,4 +1,9 @@
 export default {
+    target: 'static',
+    mode: 'static',
+    router: {
+        base: '/los_heroes/'
+    },
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
 
@@ -39,14 +44,14 @@ export default {
         ['nuxt-vuex-localstorage', {
             mode: 'debug',
             localStorage: ['counter'],
-            sessionStorage:['filter']
-          }]
+            sessionStorage: ['filter']
+        }]
     ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
         transpile: [
             'nuxt-vuex-localstorage'
-          ],
+        ],
     }
 }
