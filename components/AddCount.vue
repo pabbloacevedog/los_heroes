@@ -164,7 +164,7 @@ export default {
     text-align: center;
 }
 .name_new {
-    width: 500px;
+    /* width: 500px; */
 }
 .count {
     display: flex;
@@ -220,6 +220,7 @@ export default {
     .modal {
         height: 150px;
         margin-top: 20%;
+        width: -webkit-fill-available;
     }
     .add_content {
         border-radius: 15px;
@@ -233,7 +234,7 @@ export default {
     }
     .modal-overlay {
         justify-content: left;
-        padding-left: 4%;
+        padding: 2%;
     }
     .add_title {
         padding-left: 0%;
@@ -246,10 +247,10 @@ export default {
         justify-content: center;
     }
 }
-@media (min-width: 600px) and ( max-width: 900px) {
+@media (min-width: 600px) and (max-width: 900px) {
     .modal {
         margin-top: 20%;
-        width: 100vw;
+        width: -webkit-fill-available;
     }
     .add_content {
         border-radius: 15px;
@@ -262,7 +263,8 @@ export default {
     }
     .modal-overlay {
         justify-content: left;
-        width: 100%;
+        width: 98%;
+        padding: 1%;
     }
     .add_title {
         padding-left: 0%;
