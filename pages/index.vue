@@ -135,8 +135,23 @@ export default {
     .content-all {
         padding: 0px 2% !important;
     }
+    .order_filter {
+        flex-grow: 1;
+        padding-left: 0%;
+    }
+    .add_area {
+        flex-grow: 1;
+        text-align: right;
+        padding-right: 0%;
+    }
+    .filters_area {
+        flex-grow: 10;
+        display: flex;
+        width: -webkit-fill-available;
+        padding: 0 4%;
+    }
 }
-@media (min-width: 600px) and ( max-width: 900px) {
+@media (min-width: 600px) and (max-width: 900px) {
     .grid-container {
         display: grid;
         min-height: 100vh;
