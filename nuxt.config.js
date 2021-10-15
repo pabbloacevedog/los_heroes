@@ -1,8 +1,8 @@
 export default {
     target: 'static',
-    router: {
-        base: '/los_heroes/'
-    },
+    // router: {
+    //     base: '/los_heroes/'
+    // },
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
     ssr: false,
 

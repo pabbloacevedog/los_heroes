@@ -77,6 +77,7 @@ export default {
         },
         clean_filters() {
             this.$store.commit("filter/cleanFilters");
+            this.start()
         },
     },
     created() {
