@@ -13,5 +13,7 @@
     "nuxt": "^2.15.7",
     "nuxt-vuex-localstorage": "^1.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }
