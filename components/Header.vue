@@ -1,19 +1,20 @@
 <template>
     <div class="header">
         <div class="order_filter">
-            <button class="btn_filter_type" @click="filter_type">{{ icon_filter_type }}</button>
+            <button class="btn_filter_type" @click="filter_type">
+                {{ icon_filter_type }}
+            </button>
             <input
                 type="number"
                 class="input_count"
                 v-model="number_filter"
                 min="1"
                 max="20"
-                style="width: 30px; border-radius:4px;"
+                maxlength="2"
+                style="width: 30px; border-radius: 4px"
                 @keypress="solo_numeros"
             />
-            <button @click="filter_ok">
-                filtrar {{ icon_filter_active }}
-            </button>
+            <button @click="filter_ok">filtrar {{ icon_filter_active }}</button>
             <button v-if="filter" class="btn_cancelar" @click="clean_filters">
                 limpiar ✖
             </button>
@@ -44,8 +45,8 @@ export default {
     data() {
         return {
             filter: false,
-            filter_higher:true,
-            icon_filter_active: '',
+            filter_higher: true,
+            icon_filter_active: "",
             name_asc: true,
             value_asc: false,
             number_filter: 0,
@@ -57,7 +58,7 @@ export default {
             filters: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             buscador: "",
             add_disable: false,
-            icon_filter_type:'≥'
+            icon_filter_type: "≥",
         };
     },
     computed: {
@@ -88,15 +89,14 @@ export default {
                 this.icon_order_value = "";
             }
         },
-        filter_ok(){
+        filter_ok() {
             if (this.filter_higher) {
                 this.$store.commit("filter/filterHigher", this.number_filter);
+            } else {
+                this.$store.commit("filter/filterSmaller", this.number_filter);
             }
-            else{
-                this.$store.commit("filter/filterSmaller",this.number_filter);
-            }
-            this.icon_filter_active = this.filter_icon
-            this.filter = true
+            this.icon_filter_active = this.filter_icon;
+            this.filter = true;
         },
         start() {
             this.$store.commit("counter/orderNameAsc");
@@ -117,14 +117,13 @@ export default {
                 this.icon_order_value = this.arraw_up;
             }
         },
-        filter_type(){
+        filter_type() {
             if (this.filter_higher) {
-                this.icon_filter_type = '≤'
-                this.filter_higher = false
-            }
-            else{
-                this.icon_filter_type = '≥'
-                this.filter_higher = true
+                this.icon_filter_type = "≤";
+                this.filter_higher = false;
+            } else {
+                this.icon_filter_type = "≥";
+                this.filter_higher = true;
             }
         },
         solo_numeros(e) {
@@ -151,8 +150,8 @@ export default {
         },
         clean_filters() {
             this.$store.commit("filter/cleanFilters");
-            this.icon_filter_active = ''
-            this.filter = false
+            this.icon_filter_active = "";
+            this.filter = false;
         },
     },
     created() {
@@ -164,6 +163,11 @@ export default {
                 this.add_disable = true;
             } else {
                 this.add_disable = false;
+            }
+        },
+        "number_filter": function () {
+            if (Number(this.number_filter.length) > 2) {
+                this.number_filter = this.number_filter.slice(0, 2);
             }
         },
     },
@@ -212,12 +216,12 @@ export default {
     text-align: start !important;
     padding-left: 8%;
 }
-.btn_filter_type{
+.btn_filter_type {
     font-size: 25px;
     background: black;
     border-radius: 5px;
 }
-.btn_filter_type:hover{
+.btn_filter_type:hover {
     background: rgb(26, 25, 25);
 }
 @keyframes gradient {

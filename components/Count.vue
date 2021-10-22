@@ -23,6 +23,7 @@
                     v-model="item.value"
                     min="1"
                     max="20"
+                    maxlength="2"
                 />
             </div>
             <div class="add">
@@ -63,30 +64,34 @@ export default {
                 });
         },
         add_one() {
-            this.$store
-                .dispatch("counter/add_one", this.index)
-                .then((res) => {})
-                .catch((err) => {
-                    console.log(err);
-                });
+            if (Number(this.item.value) < 20) {
+                this.$store
+                    .dispatch("counter/add_one", this.index)
+                    .then((res) => {})
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
         },
         remove_one() {
-            this.$store
-                .dispatch("counter/remove_one", this.index)
-                .then((res) => {})
-                .catch((err) => {
-                    console.log(err);
-                });
+            if (Number(this.item.value) > 0) {
+                this.$store
+                    .dispatch("counter/remove_one", this.index)
+                    .then((res) => {})
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
         },
     },
     watch: {
         "item.value": function () {
-            if (this.item.value >= 20) {
+            if (Number(this.item.value) >= 20) {
                 this.add_disable = true;
             } else {
                 this.add_disable = false;
             }
-            if (this.item.value <= 0) {
+            if (Number(this.item.value) <= 0) {
                 this.remove_disable = true;
             } else {
                 this.remove_disable = false;

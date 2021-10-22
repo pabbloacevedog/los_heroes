@@ -59,7 +59,7 @@ export const mutations = {
     orderNameDesc(state) {
         state.list.sort(function(a, b){
             if(b.name < a.name) { return -1; }
-            if(b.name > actions.name) { return 1; }
+            if(b.name > b.name) { return 1; }
             return 0;
         })
     },

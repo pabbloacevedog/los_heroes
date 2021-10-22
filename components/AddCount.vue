@@ -28,6 +28,7 @@
                                 class="input_counter"
                                 min="1"
                                 max="20"
+                                maxlength="2"
                                 v-model="obj.value"
                                 @keypress="solo_numeros"
                                 @focus="clean_counter"
@@ -142,6 +143,13 @@ export default {
             if (letras.indexOf(charStr) == -1 && !tecla_especial) {
                 e.preventDefault();
                 e.stopPropagation();
+            }
+        },
+    },
+    watch: {
+        "obj.value": function () {
+            if (Number(this.obj.value.length) > 2) {
+                this.obj.value = this.obj.value.slice(0, 2);
             }
         },
     },
