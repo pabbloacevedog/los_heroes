@@ -31,7 +31,7 @@ body {
 }
 .header {
     grid-area: header;
-    background-color: #45289f;
+    background-color: #520189;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@ body {
 }
 .footer {
     grid-area: footer;
-    background-color: #45289f;
+    background-color: #520189;
     display: flex;
     justify-content: center;
     align-items: center;

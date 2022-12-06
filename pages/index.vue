@@ -128,7 +128,7 @@ export default {
     }
     .header {
         grid-area: header;
-        background-color: #45289f;
+        background-color: #520189;
         display: flex;
         flex-direction: column;
     }
@@ -163,7 +163,7 @@ export default {
     }
     .header {
         grid-area: header;
-        background-color: #45289f;
+        background-color: #520189;
         display: flex;
         flex-direction: row;
     }

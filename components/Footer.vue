@@ -41,7 +41,7 @@ export default {
     padding: 5px;
     display: flex;
     flex-direction: row;
-    background-color: #45289f;
+    background-color: #520189;
 }
 .total_area {
     flex-grow: 12;
@@ -65,7 +65,7 @@ export default {
 }
 #total {
     color: rgb(34 34 34);
-    border-radius: 6px;
+    border-radius: 15px;
     width: 50px;
     text-align: center;
     font-size: 20px;

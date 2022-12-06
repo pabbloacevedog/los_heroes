@@ -107,7 +107,7 @@ export default {
     display: flex;
     flex-direction: row;
     background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    background-image: linear-gradient(315deg, #00c642  0%, #10a985  baef 74%);
 }
 .input_count {
     width: 10px;

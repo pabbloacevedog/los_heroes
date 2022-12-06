@@ -185,9 +185,20 @@ export default {
     padding: 5px;
     display: flex;
     flex-direction: row;
-    background-color: #45289f;
+    background-color: #520189;
 }
-
+.input_count {
+    width: 30px;
+    border-radius: 19px;
+    padding: 4px 15px;
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    border-radius: 26px;
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
 .filters_area {
     flex-grow: 1;
     display: flex;
@@ -201,7 +212,13 @@ export default {
     padding-right: 8%;
 }
 .buscador {
-    background-color: white;
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    border-radius: 15px;
+    border: none;
+    vertical-align: middle;
+    padding: 4px 15px;
 }
 .order_name {
     flex-grow: 1;
@@ -219,7 +236,15 @@ export default {
 .btn_filter_type {
     font-size: 25px;
     background: black;
-    border-radius: 5px;
+    border-radius: 25px;
+    flex-grow: 1;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: #fff;
+    border-radius: 26px;
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
 }
 .btn_filter_type:hover {
     background: rgb(26, 25, 25);
@@ -245,12 +270,12 @@ button {
     flex-grow: 1;
     font-size: 1rem;
     line-height: 1.8rem;
-    background: #017997;
+    background: #36005a;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 26px;
     border: none;
     vertical-align: middle;
-    padding: 0px 20px;
+    padding: 5px 22px;
     cursor: pointer;
 }
 button:hover {

@@ -1,20 +1,12 @@
 
 
 <template>
-    <transition name="modal-fade">
+    <transition name="bounce">
         <div class="modal-overlay">
             <div class="add_content modal">
                 <div class="add_title">
-                    <input
-                        type="text"
-                        placeholder="Nombre contador"
-                        id="name_new"
-                        class="name_new"
-                        autofocus
-                        v-model="obj.name"
-                        @focus="clean_name"
-                        maxlength="20"
-                    />
+                    <input type="text" placeholder="Nombre contador" id="name_new" class="name_new" autofocus
+                        v-model="obj.name" @focus="clean_name" maxlength="20" />
                 </div>
                 <div class="add_count">
                     <div class="count">
@@ -22,17 +14,8 @@
                             <h2 class="name">Valor</h2>
                         </div>
                         <div style="align-self: center">
-                            <input
-                                type="number"
-                                id="input_counter"
-                                class="input_counter"
-                                min="1"
-                                max="20"
-                                maxlength="2"
-                                v-model="obj.value"
-                                @keypress="solo_numeros"
-                                @focus="clean_counter"
-                            />
+                            <input type="number" id="input_counter" class="input_counter" min="1" max="20" maxlength="2"
+                                v-model="obj.value" @keypress="solo_numeros" @focus="clean_counter" />
                         </div>
                     </div>
                 </div>
@@ -59,6 +42,16 @@ export default {
                 name: "",
                 value: 0,
             },
+            rotate: {
+                rotate: 360,
+                backgroundColor: ['#2f495e', '#00c58e'],
+                duration: 3000,
+                loop: true
+            },
+            translate: {
+                translateY: 250,
+                duration: 3300
+            }
         };
     },
     methods: {
@@ -160,28 +153,33 @@ export default {
     outline: none !important;
     border: 2px solid red;
 }
+
 .add_content {
     border-radius: 15px;
     padding: 5px;
     display: flex;
     flex-direction: row;
     background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    background-image: linear-gradient(315deg, #00c642 0%, #10a985 baef 74%);
 }
+
 .input_counter {
     width: 40px;
     text-align: center;
 }
+
 .counter_error {
     outline: none !important;
     border: 2px solid red;
 }
+
 .add_title {
     flex-grow: 1;
     text-align: start !important;
     padding-left: 5%;
     align-self: center;
 }
+
 .add_count {
     flex-grow: 1;
     display: flex;
@@ -189,33 +187,41 @@ export default {
     align-items: center;
     text-align: center;
 }
+
 .name_new {
     /* width: 500px; */
 }
+
 .count {
     display: flex;
     flex-direction: row;
 }
+
 .add_action {
     display: flex;
     flex-grow: 1;
     align-self: center;
     text-align: center;
 }
+
 .btn_cancelar {
     background: #6c6c6c;
 }
+
 .btn_cancelar:hover {
     background: #8d8d8d;
 }
+
 .cancelar {
     flex-grow: 1;
     align-self: center;
 }
+
 .add_new {
     flex-grow: 1;
     align-self: center;
 }
+
 .modal-overlay {
     z-index: 100;
     position: fixed;
@@ -233,6 +239,7 @@ export default {
     width: 80%;
     margin-top: 20%;
 }
+
 .modal-fade-enter,
 .modal-fade-leave-to {
     opacity: 0;
@@ -242,12 +249,36 @@ export default {
 .modal-fade-leave-active {
     transition: opacity 0.5s ease;
 }
+
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 600px) {
     .modal {
         height: 150px;
         margin-top: 20%;
         width: -webkit-fill-available;
     }
+
     .add_content {
         border-radius: 15px;
         padding: 5px;
@@ -255,49 +286,61 @@ export default {
         flex-direction: column;
         padding-top: 5%;
     }
+
     .name_new {
         width: 100%;
     }
+
     .modal-overlay {
         justify-content: left;
         padding: 2%;
     }
+
     .add_title {
         padding-left: 0%;
     }
+
     .cancelar {
         padding-right: 10%;
     }
+
     .count {
         align-self: start;
         justify-content: center;
     }
 }
+
 @media (min-width: 600px) and (max-width: 900px) {
     .modal {
         margin-top: 20%;
         width: -webkit-fill-available;
     }
+
     .add_content {
         border-radius: 15px;
         padding: 5px;
         display: flex;
         flex-direction: row;
     }
+
     .name_new {
         width: 90%;
     }
+
     .modal-overlay {
         justify-content: left;
         width: 98%;
         padding: 1%;
     }
+
     .add_title {
         padding-left: 0%;
     }
+
     .cancelar {
         padding-right: 1%;
     }
+
     .count {
         align-self: start;
         justify-content: center;
