@@ -15,7 +15,6 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_plugin_6de56dac from 'nuxt_plugin_plugin_6de56dac' // Source: .\\components\\plugin.js (mode: 'all')
 import nuxt_plugin_nuxtvuexlocalstorage_c3f5d130 from 'nuxt_plugin_nuxtvuexlocalstorage_c3f5d130' // Source: .\\nuxt-vuex-localstorage.js (mode: 'client')
-import nuxt_plugin_animejsModule_08a613dc from 'nuxt_plugin_animejsModule_08a613dc' // Source: .\\animejsModule.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -215,10 +214,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_nuxtvuexlocalstorage_c3f5d130 === 'function') {
     await nuxt_plugin_nuxtvuexlocalstorage_c3f5d130(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_animejsModule_08a613dc === 'function') {
-    await nuxt_plugin_animejsModule_08a613dc(app.context, inject)
   }
 
   // Lock enablePreview in context

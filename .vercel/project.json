@@ -1,1 +1,14 @@
-{"projectId":"prj_PKkaQbTTmYWSMgoG5tYYPKa9dmoI","orgId":"S6924Yg40wCyt71ItrcQvABq"}
+{
+  "projectId": "prj_PKkaQbTTmYWSMgoG5tYYPKa9dmoI",
+  "orgId": "S6924Yg40wCyt71ItrcQvABq",
+  "settings": {
+    "framework": "nuxtjs",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": "nuxt generate",
+    "outputDirectory": ".nuxt",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "14.x"
+  }
+}
